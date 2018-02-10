@@ -1,0 +1,3 @@
+[submodule "ext/lgbm"]
+	path = ext/lgbm
+	url = https://github.com/Microsoft/LightGBM.git
