@@ -1,7 +1,7 @@
 
 BINDIR=bin
 EXTDIR=ext
-TARGS=$(addprefix $(BINDIR)/,rbp_eval lightgbm)
+TARGS=$(addprefix $(BINDIR)/,rbp_eval lightgbm xgboost)
 
 .PHONEY: all clean
 
@@ -20,6 +20,9 @@ $(BINDIR)/rbp_eval: $(EXTDIR)/rbp_eval-0.2.tar.gz
 
 $(BINDIR)/lightgbm:
 	./script/build-lgbm.sh
+
+$(BINDIR)/xgboost:
+	./script/build-xgb.sh
 
 clean:
 	$(RM) -r $(BINDIR)

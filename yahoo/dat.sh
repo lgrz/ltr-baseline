@@ -24,4 +24,4 @@ awk '{sub(/qid:/, "", $2); print $2;}' $TR | uniq -c | awk '{print $1}' > $TR.xg
 cp $T.xgb.group $T.xgb.query
 cp $V.xgb.group $V.xgb.query
 cp $TR.xgb.group $TR.xgb.query
-$BASE/tools/svm2qrel.sh $T > set1.test.qrels
+$BASE/script/svm2qrel.sh $T > set1.test.qrels

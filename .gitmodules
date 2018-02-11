@@ -1,3 +1,6 @@
 [submodule "ext/lgbm"]
 	path = ext/lgbm
 	url = https://github.com/Microsoft/LightGBM.git
+[submodule "ext/xgboost"]
+	path = ext/xgboost
+	url = https://github.com/dmlc/xgboost.git

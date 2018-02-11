@@ -1,9 +1,10 @@
 #!/bin/bash
 
 SPATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+BIN=$SPATH/../bin
 
-test ! -f "$SPATH/rbp_eval" \
-    && echo "run \`cd $SPATH && make\` first" 1>&2 \
+test ! -f "$SPATH/../bin/rbp_eval" \
+    && echo "run \`cd `dirname $SPATH` && make\` first" 1>&2 \
     && exit 1
 
 if [ $# -ne 2 ]; then
@@ -33,5 +34,5 @@ awk -F, '{printf "%.4f\n", $3}' $TMP10
 echo -n "NDCG_20 "
 awk -F, '{printf "%.4f\n", $3}' $TMP20
 rm $TMP5 $TMP10 $TMP20
-$SPATH/rbp_eval -HW -p 0.8 $QRELS $2 | awk '{print "RBP_08", $8 $9}'
-$SPATH/rbp_eval -HW -p 0.9 $QRELS $2 | awk '{print "RBP_09", $8 $9}'
+$BIN/rbp_eval -HW -p 0.8 $QRELS $2 | awk '{print "RBP_08", $8 $9}'
+$BIN/rbp_eval -HW -p 0.9 $QRELS $2 | awk '{print "RBP_09", $8 $9}'
