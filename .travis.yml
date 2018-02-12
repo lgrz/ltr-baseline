@@ -1,0 +1,11 @@
+language: c++
+before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq cmake
+script: make
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-7
