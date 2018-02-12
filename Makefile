@@ -1,7 +1,7 @@
 
 BINDIR=bin
 EXTDIR=ext
-TARGS=$(addprefix $(BINDIR)/,rbp_eval lightgbm xgboost jforests)
+TARGS=$(addprefix $(BINDIR)/,rbp_eval lightgbm xgboost jforests quicklearn)
 
 .PHONEY: all clean
 
@@ -26,6 +26,9 @@ $(BINDIR)/xgboost:
 
 $(BINDIR)/jforests:
 	./script/build-jf.sh
+
+$(BINDIR)/quicklearn:
+	./script/build-qr.sh
 
 clean:
 	$(RM) -r $(BINDIR)

@@ -39,6 +39,6 @@ $LGBM \
 paste -d' ' run/${name}.score $qrels \
     | awk '{print $2, "Q0", $4, 0, $1, "lgbm"}' \
     | sort -k1n -k5nr \
-    | $BASE/tools/trecrank.awk > run/run.${name}
+    | $BASE/script/trecrank.awk > run/run.${name}
 
-$BASE/tools/eval.sh $qrels run/run.${name} > eval/eval.${name}
+$BASE/script/eval.sh $qrels run/run.${name} > eval/eval.${name}

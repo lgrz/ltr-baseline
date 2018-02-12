@@ -7,3 +7,6 @@
 [submodule "ext/jforests"]
 	path = ext/jforests
 	url = https://github.com/yasserg/jforests.git
+[submodule "ext/quickrank"]
+	path = ext/quickrank
+	url = https://github.com/hpclab/quickrank.git
