@@ -4,3 +4,6 @@
 [submodule "ext/xgboost"]
 	path = ext/xgboost
 	url = https://github.com/dmlc/xgboost.git
+[submodule "ext/jforests"]
+	path = ext/jforests
+	url = https://github.com/yasserg/jforests.git
