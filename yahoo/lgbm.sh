@@ -26,17 +26,17 @@ $LGBM \
     metric=ndcg \
     eval_at=1,5,10,20 \
     early_stopping_round=$trees \
-    output_model="model/${name}.model" \
+    output_model="model/modle.${name}" \
     data="${dat}/set1.train.txt.xgb" \
     valid_data="${dat}/set1.valid.txt.xgb"
 
 $LGBM \
     task=predict \
     data="${dat}/set1.test.txt.xgb" \
-    input_model="model/${name}.model" \
-    output_result="run/${name}.score"
+    input_model="model/model.${name}" \
+    output_result="run/score.${name}"
 
-paste -d' ' run/${name}.score $qrels \
+paste -d' ' run/score.${name} $qrels \
     | awk '{print $2, "Q0", $4, 0, $1, "lgbm"}' \
     | sort -k1n -k5nr \
     | $BASE/script/trecrank.awk > run/run.${name}
