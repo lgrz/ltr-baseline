@@ -14,3 +14,10 @@ A collection of LTR baselines using various algorithms from publicly availble im
 | LambdaRank | jforests  | 0.7650  | 0.6377  | 0.4615  | 0.4760  | 0.4798  | 0.7431  | 0.7842  | 0.8256  |
 | LambdaMART | QuickRank | 0.7645  | 0.6372  | 0.4603  | 0.4749  | 0.4787  | 0.7408  | 0.7827  | 0.8237  |
 | X-DART     | QuickRank | 0.7582  | 0.6332  | 0.4546  | 0.4695  | 0.4735  | 0.7237  | 0.7688  | 0.8124  |
+
+
+### MSLR-WEB10K
+
+| Ranker     | Framework | RBP@0.8 | RBP@0.9 | ERR@5   | ERR@10  | ERR@20  | NDCG@5  | NDCG@10 | NDCG@20 |
+|------------|-----------|---------|---------|---------|---------|---------|---------|---------|---------|
+| LambdaRank | LGBM      | 0.6886  | 0.6353  | 0.3548  | 0.3735  | 0.3815  | 0.4724  | 0.4913  | 0.5225  |

@@ -4,4 +4,9 @@ yahoo/eval
 yahoo/run
 yahoo/model
 yahoo/dat/set1.*
+mslr10k/eval
+mslr10k/run
+mslr10k/model
+mslr10k/dat/*
+!mslr10k/dat/.keep
 jforests-*.txt
