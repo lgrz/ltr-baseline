@@ -21,4 +21,6 @@ A collection of LTR baselines using various algorithms from publicly availble im
 | Ranker     | Framework | RBP@0.8 | RBP@0.9 | ERR@5   | ERR@10  | ERR@20  | NDCG@5  | NDCG@10 | NDCG@20 |
 |------------|-----------|---------|---------|---------|---------|---------|---------|---------|---------|
 | LambdaRank | LGBM      | 0.6886  | 0.6353  | 0.3548  | 0.3735  | 0.3815  | 0.4724  | 0.4913  | 0.5225  |
+| GBDT       | XGBoost   | 0.6917  | 0.6398  | 0.3513  | 0.3702  | 0.3784  | 0.4694  | 0.4893  | 0.5213  |
 | LambdaRank | jforests  | 0.6832  | 0.6306  | 0.3536  | 0.3724  | 0.3804  | 0.4672  | 0.4865  | 0.5180  |
+
