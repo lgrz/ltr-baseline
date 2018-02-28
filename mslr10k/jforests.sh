@@ -9,12 +9,14 @@ JF=$SPATH/../bin/jforests
 mkdir -p model run eval
 
 dat="$SPATH/dat"
-qrels=$dat/set1.test.qrels
 
 trees=1000
 leaves=63
 eta=0.05
 name="jf.lmart.${trees}.${leaves}.${eta}"
+for i in {1..5}; do
+suffix="${name}.fold${i}"
+qrels="${dat}/MSLR-WEB10K/Fold${i}/test.qrels"
 
 echo "
 learning.algorithm=LambdaMART-RegressionTree
@@ -30,23 +32,25 @@ params.print-intermediate-valid-measurements=true
 $JF --cmd=train \
     --ranking \
     --config-file ranking.properties \
-    --train-file $dat/set1.train.bin \
-    --validation-file $dat/set1.valid.bin \
-    --output-model model/model.${name}
+    --train-file $dat/MSLR-WEB10K/Fold${i}/train.bin \
+    --validation-file $dat/MSLR-WEB10K/Fold${i}/vali.bin \
+    --output-model model/model.${suffix}
 
 $JF \
     --cmd=predict \
     --ranking \
-    --model-file model/model.${name} \
+    --model-file model/model.${suffix} \
     --tree-type RegressionTree \
-    --test-file $dat/set1.test.bin \
-    --output-file run/score.${name}
+    --test-file $dat/MSLR-WEB10K/Fold${i}/test.bin \
+    --output-file run/score.${suffix}
 
 rm ranking.properties
 
-paste -d' ' run/score.${name} $qrels \
+paste -d' ' run/score.${suffix} $qrels \
     | awk '{print $2, "Q0", $4, 0, $1, "jforests"}' \
     | sort -k1n -k5nr \
-    | $BASE/script/trecrank.awk > run/run.${name}
+    | $BASE/script/trecrank.awk > run/run.${suffix}
+done
 
-$BASE/script/eval.sh $qrels run/run.${name} > eval/eval.${name}
+cat $SPATH/run/run.${name}.fold? > $SPATH/run/run.all.${name}
+$BASE/script/eval.sh $dat/all.test.qrels $SPATH/run/run.all.${name} > $SPATH/eval/eval.all.${name}
