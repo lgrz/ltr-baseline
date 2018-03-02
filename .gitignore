@@ -9,4 +9,9 @@ mslr10k/run
 mslr10k/model
 mslr10k/dat/*
 !mslr10k/dat/.keep
+mslr30k/eval
+mslr30k/run
+mslr30k/model
+mslr30k/dat/*
+!mslr30k/dat/.keep
 jforests-*.txt
