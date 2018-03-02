@@ -24,3 +24,4 @@ A collection of LTR baselines using various algorithms from publicly availble im
 | GBDT       | XGBoost   | 0.6917  | 0.6398  | 0.3513  | 0.3702  | 0.3784  | 0.4694  | 0.4893  | 0.5213  |
 | LambdaRank | jforests  | 0.6832  | 0.6306  | 0.3536  | 0.3724  | 0.3804  | 0.4672  | 0.4865  | 0.5180  |
 | LambdaMART | QuickRank | 0.6771  | 0.6250  | 0.3470  | 0.3663  | 0.3745  | 0.4582  | 0.4782  | 0.5102  |
+| X-DART     | QuickRank | 0.6738  | 0.6201  | 0.3458  | 0.3647  | 0.3729  | 0.4552  | 0.4721  | 0.5023  |
