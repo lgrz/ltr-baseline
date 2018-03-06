@@ -14,4 +14,9 @@ mslr30k/run
 mslr30k/model
 mslr30k/dat/*
 !mslr30k/dat/.keep
+istella-s/eval
+istella-s/run
+istella-s/model
+istella-s/dat/*
+!istella-s/dat/.keep
 jforests-*.txt
