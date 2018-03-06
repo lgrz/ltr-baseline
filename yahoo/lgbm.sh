@@ -26,7 +26,7 @@ $LGBM \
     metric=ndcg \
     eval_at=1,5,10,20 \
     early_stopping_round=$trees \
-    output_model="model/modle.${name}" \
+    output_model="model/model.${name}" \
     data="${dat}/set1.train.txt.xgb" \
     valid_data="${dat}/set1.valid.txt.xgb"
 
