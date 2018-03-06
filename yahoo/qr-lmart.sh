@@ -33,7 +33,7 @@ $QR \
     --scores run/score.${name}
 
 paste -d' ' run/score.${name} $qrels \
-    | awk '{print $2, "Q0", $4, 0, $1, "lgbm"}' \
+    | awk '{print $2, "Q0", $4, 0, $1, "qr-lmart"}' \
     | sort -k1n -k5nr \
     | $BASE/script/trecrank.awk > run/run.${name}
 

@@ -41,7 +41,7 @@ $QR \
     --scores run/score.${suffix}
 
 paste -d' ' run/score.${suffix} $qrels \
-    | awk '{print $2, "Q0", $4, 0, $1, "xdart"}' \
+    | awk '{print $2, "Q0", $4, 0, $1, "qr-xdart"}' \
     | sort -k1n -k5nr \
     | $BASE/script/trecrank.awk > run/run.${suffix}
 done
