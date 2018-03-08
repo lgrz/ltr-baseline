@@ -19,4 +19,9 @@ istella-s/run
 istella-s/model
 istella-s/dat/*
 !istella-s/dat/.keep
+istella/eval
+istella/run
+istella/model
+istella/dat/*
+!istella/dat/.keep
 jforests-*.txt
