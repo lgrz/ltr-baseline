@@ -3,6 +3,16 @@
 
 A collection of LTR baselines using various algorithms from publicly availble implementations.
 
+## Datasets
+
+* [Yahoo LTR Challenge][ydat]
+* [MSLR][mslr]
+* [Istella][istella]
+
+[ydat]: https://webscope.sandbox.yahoo.com/catalog.php?datatype=c
+[mslr]: https://www.microsoft.com/en-us/research/project/mslr/
+[istella]: http://quickrank.isti.cnr.it/istella-dataset/
+
 ## Results
 
 Tables are orderd by NDCG@10. Statistical significance is indicated using a
