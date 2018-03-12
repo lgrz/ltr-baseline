@@ -3,6 +3,7 @@
 
 A collection of LTR baselines using various algorithms from publicly availble implementations.
 
+
 ## Datasets
 
 * [Yahoo LTR Challenge][ydat]
@@ -13,12 +14,14 @@ A collection of LTR baselines using various algorithms from publicly availble im
 [mslr]: https://www.microsoft.com/en-us/research/project/mslr/
 [istella]: http://quickrank.isti.cnr.it/istella-dataset/
 
+
 ## Results
 
 Tables are orderd by NDCG@10. Statistical significance is indicated using a
 pairwise t-test with Bonferroni correction. Entries marked with `*` and `^`
 indicate 95% and 99% confidence intervals respectively. Comparisons are
 relative to LightGBM.
+
 
 ### Yahoo! Set 1
 
@@ -29,6 +32,13 @@ relative to LightGBM.
 | LambdaRank | jforests  | 0.7650  | 0.6377  | 0.4615  | 0.4760  | 0.4798  | 0.7431  | 0.7842  | 0.8256  |
 | LambdaMART | QuickRank | 0.7645  | 0.6372  | 0.4603  | 0.4749  | 0.4787  | 0.7408  | 0.7827  | 0.8237  |
 | X-DART     | QuickRank | 0.7582^ | 0.6332^ | 0.4546^ | 0.4695^ | 0.4735^ | 0.7237^ | 0.7688^ | 0.8124^ |
+
+
+### Yahoo! Set 2
+
+| Ranker     | Framework | RBP@0.8 | RBP@0.9 | ERR@5   | ERR@10  | ERR@20  | NDCG@5  | NDCG@10 | NDCG@20 |
+|------------|-----------|---------|---------|---------|---------|---------|---------|---------|---------|
+| LambdaRank | LightGBM  | 0.8406  | 0.7446  | 0.4453  | 0.4613  | 0.4677  | 0.7389  | 0.7735  | 0.8285  |
 
 
 ### MSLR-WEB10K

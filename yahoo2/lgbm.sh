@@ -1,0 +1,44 @@
+#!/bin/bash
+
+set -ue
+
+SPATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+BASE=$SPATH/..
+LGBM=$SPATH/../bin/lightgbm
+
+mkdir -p model run eval
+
+dat="$SPATH/dat"
+qrels=$dat/set2.test.qrels
+
+trees=1000
+leaves=63
+eta=0.05
+name="lgbm.gbdt.${trees}.${leaves}.${eta}"
+
+$LGBM \
+    app=lambdarank \
+    save_binary=true \
+    boosting=gbdt \
+    num_trees=$trees \
+    num_leaves=$leaves \
+    learning_rate=$eta \
+    metric=ndcg \
+    eval_at=1,5,10,20 \
+    early_stopping_round=$trees \
+    output_model="model/model.${name}" \
+    data="${dat}/set2.train.txt.xgb" \
+    valid_data="${dat}/set2.valid.txt.xgb"
+
+$LGBM \
+    task=predict \
+    data="${dat}/set2.test.txt.xgb" \
+    input_model="model/model.${name}" \
+    output_result="run/score.${name}"
+
+paste -d' ' run/score.${name} $qrels \
+    | awk '{print $2, "Q0", $4, 0, $1, "lgbm"}' \
+    | sort -k1n -k5nr \
+    | $BASE/script/trecrank.awk > run/run.${name}
+
+$BASE/script/eval.sh $qrels run/run.${name} > eval/eval.${name}
