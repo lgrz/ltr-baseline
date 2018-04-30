@@ -1,7 +1,7 @@
 
 BINDIR=bin
 EXTDIR=ext
-TARGS=$(addprefix $(BINDIR)/,rbp_eval lightgbm xgboost jforests quicklearn)
+TARGS=$(addprefix $(BINDIR)/,rbp_eval lightgbm xgboost jforests quicklearn ranklib)
 
 .PHONEY: all clean
 
@@ -29,6 +29,10 @@ $(BINDIR)/jforests:
 
 $(BINDIR)/quicklearn:
 	./script/build-qr.sh
+
+$(BINDIR)/ranklib:
+	cd ext/ranklib && ant && cd -
+	./script/build-ranklib.sh
 
 clean:
 	$(RM) -r $(BINDIR)
