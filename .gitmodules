@@ -10,3 +10,6 @@
 [submodule "ext/quickrank"]
 	path = ext/quickrank
 	url = https://github.com/hpclab/quickrank.git
+[submodule "ext/ranklib"]
+	path = ext/ranklib
+	url = git@github.com:lgrz/ranklib-mirror.git
