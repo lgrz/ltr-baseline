@@ -29,4 +29,10 @@ cp $TR.xgb.group $TR.xgb.query
 # jforest
 $BASE/script/jfmkbin.sh $DATDIR $T $V $TR
 
+# ranklib
+python $BASE/script/densify $T
+python $BASE/script/densify $V
+python $BASE/script/densify $TR
+
+# qrels
 $BASE/script/svm2qrel.sh $T > set1.test.qrels
